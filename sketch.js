@@ -112,9 +112,9 @@ function draw() {
     text('alignment', 10, 40);
     text('cohesion', 160, 40);
     text('repulsion', 320, 40);
-    text(drawornot,535,25);
-    text(wallsornot,535,55);
-    text(pointornot,535,85);
+    text(drawornot,545,25);
+    text(wallsornot,545,55);
+    text(pointornot,545,85);
         
     for(let b of flock)
         {

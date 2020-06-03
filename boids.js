@@ -7,7 +7,7 @@ class boids
             this.velocity.setMag(random(1,2));
             this.acceleration=createVector();
             
-            this.maxSpeed=5;
+            this.maxSpeed=4;
             this.maxForce=0.2;
             
             this.radius=10;//random(5,12);
@@ -18,7 +18,7 @@ class boids
         
         align(birds,af)
         {
-            let perceptionRadius=100;
+            let perceptionRadius=70;
             let acc=createVector();
             let ctr=0;
             for(let bird of birds)
@@ -42,7 +42,7 @@ class boids
         
         cohese(birds)
         {
-            let perceptionRadius=100;
+            let perceptionRadius=70;
             let acc=createVector();
             let ctr=0;
             for(let bird of birds)
@@ -93,7 +93,7 @@ class boids
         
         repulsewalls(walls) //reppels walls ie: array with evvery 10th border point added and repelled with EXTRA force that boid-boid repusion
         {
-            let perceptionRadius=50;
+            let perceptionRadius=40;
             let acc=createVector();
             let ctr=0;
             for(let wall of walls)
@@ -121,7 +121,7 @@ class boids
         
         repulseobstacles(walls) //reppels walls ie: array with every obstacle point added and repelled with EXTRA force that boid-boid repusion
         {
-            let perceptionRadius=50;
+            let perceptionRadius=30;
             let acc=createVector();
             let ctr=0;
             if(walls.length==0)
@@ -162,7 +162,17 @@ class boids
         {
             stroke(this.R,this.G,this.B);
             strokeWeight(this.radius);
-            point(this.position.x,this.position.y);
+            if(choicepoint===0)
+                point(this.position.x,this.position.y);
+            else
+                {
+                    let v=createVector();
+                    v.add(this.velocity);
+                    v.setMag(8);
+                    strokeWeight(3);
+                    v.add(this.position);
+                    line(this.position.x,this.position.y,v.x,v.y);
+                }
         }
         
         

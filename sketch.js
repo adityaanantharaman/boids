@@ -7,6 +7,9 @@ var drawornot='NO';
 var choicewalls=0;
 var wallsornot='NO';
 
+var choicepoint=0;
+var pointornot='POINTS';
+
 let s1,s2,s3;
 let walls=[];
 let obstacles=[];
@@ -32,6 +35,10 @@ function setup() {
     button=createButton("WALLS");
     button.position(480,40);
     button.mousePressed(changeWalls);
+    
+    button=createButton("SHAPE");
+    button.position(480,70);
+    button.mousePressed(changeShape);
     
         for(let i=0;i<width;i+=50)
         {
@@ -74,6 +81,20 @@ function changeWalls()
         }
 }
 
+function changeShape()
+{
+    if(choicepoint===1)
+        {
+            choicepoint--;
+            pointornot='POINTS';
+        }
+    else
+        {
+            choicepoint++;
+            pointornot='LINES';
+        }
+}
+
 
 function mousePressed()
 {
@@ -91,8 +112,9 @@ function draw() {
     text('alignment', 10, 40);
     text('cohesion', 160, 40);
     text('repulsion', 320, 40);
-    text(drawornot,545,25);
-    text(wallsornot,545,55);
+    text(drawornot,535,25);
+    text(wallsornot,535,55);
+    text(pointornot,535,85);
         
     for(let b of flock)
         {

@@ -2,7 +2,7 @@
 
 In order to run the simulation on a local system.
 1. clone the repository
-2. run the index.htms file
+2. run the index.html file
 
 The boids.js file consists of implementation of the rules for each of the individual boids. These rules are implemented as functions align, cohese, repulse.
 

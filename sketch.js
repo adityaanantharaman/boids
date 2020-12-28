@@ -57,7 +57,7 @@ function setup() {
 }
 
 function gotolink() {
-	window.open('https://github.com/adityaanantharaman/fourier-epicycles');
+	window.open('https://github.com/adityaanantharaman/boids');
 }
 
 function changeChoice()

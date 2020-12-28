@@ -17,27 +17,31 @@ function setup() {
   // put setup code here
 
     createCanvas(windowWidth,windowHeight);
-    for(let i=0;i<140;i++)
+    for(let i=0;i<120;i++)
         flock.push(new boids());
 
+
+    button1 = createButton('GO TO GITHUB');
+    button1.position(20, windowHeight-50);
+    button1.mousePressed(gotolink);
 
     s1=createSlider(0,2,1,0.1);
     s1.position(10,10);
     s2=createSlider(0,2,1,0.1);
-    s2.position(160,10);
+    s2.position(140,10);
     s3=createSlider(0,2,1,0.1);
-    s3.position(320,10);
+    s3.position(270,10);
 
     button=createButton("DRAW");
-    button.position(480,10);
+    button.position(20,55);
     button.mousePressed(changeChoice);
 
     button=createButton("WALLS");
-    button.position(480,40);
+    button.position(20,85);
     button.mousePressed(changeWalls);
 
     button=createButton("SHAPE");
-    button.position(480,70);
+    button.position(20,115);
     button.mousePressed(changeShape);
 
         for(let i=0;i<width;i+=50)
@@ -52,6 +56,9 @@ function setup() {
         }
 }
 
+function gotolink() {
+	window.open('https://github.com/adityaanantharaman/fourier-epicycles');
+}
 
 function changeChoice()
 {
@@ -112,9 +119,9 @@ function draw() {
     text('alignment', 10, 40);
     text('cohesion', 160, 40);
     text('repulsion', 320, 40);
-    text(drawornot,545,25);
-    text(wallsornot,545,55);
-    text(pointornot,545,85);
+    text(drawornot,90,70);
+    text(wallsornot,90,100);
+    text(pointornot,90,130);
 
     for(let b of flock)
         {

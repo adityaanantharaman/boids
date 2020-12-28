@@ -6,16 +6,16 @@ class boids
             this.velocity=createVector(random(-1,1),random(-1,1));
             this.velocity.setMag(random(1,2));
             this.acceleration=createVector();
-            
-            this.maxSpeed=4;
-            this.maxForce=0.2;
-            
+
+            this.maxSpeed=6;
+            this.maxForce=0.3;
+
             this.radius=10;//random(5,12);
             this.R=random(100,255);
             this.G=random(100,255);
             this.B=random(100,255);
         }
-        
+
         align(birds,af)
         {
             let perceptionRadius=70;
@@ -39,7 +39,7 @@ class boids
                 }
             this.acceleration.add(acc.mult(s1.value()));
         }
-        
+
         cohese(birds)
         {
             let perceptionRadius=70;
@@ -63,7 +63,7 @@ class boids
                 }
             this.acceleration.add(acc.mult(s2.value()));
         }
-        
+
         repulse(birds)
         {
             let perceptionRadius=30;
@@ -80,7 +80,7 @@ class boids
                         ctr++;
                     }
                 }
-            
+
             if(ctr>0)
                 {
                     acc.div(ctr);
@@ -90,7 +90,7 @@ class boids
                 }
             this.acceleration.add(acc.mult(s3.value()));
         }
-        
+
         repulsewalls(walls) //reppels walls ie: array with evvery 10th border point added and repelled with EXTRA force that boid-boid repusion
         {
             let perceptionRadius=40;
@@ -107,8 +107,8 @@ class boids
                         ctr++;
                     }
                 }
-                
-            
+
+
             if(ctr>0)
                 {
                     acc.div(ctr);
@@ -118,7 +118,7 @@ class boids
                 }
             this.acceleration.add(acc.mult(2));
         }
-        
+
         repulseobstacles(walls) //reppels walls ie: array with every obstacle point added and repelled with EXTRA force that boid-boid repusion
         {
             let perceptionRadius=30;
@@ -137,8 +137,8 @@ class boids
                         ctr++;
                     }
                 }
-                
-            
+
+
             if(ctr>0)
                 {
                     acc.div(ctr);
@@ -148,8 +148,8 @@ class boids
                 }
             this.acceleration.add(acc.mult(2));
         }
-        
-        
+
+
         move()
         {
             this.velocity.add(this.acceleration);
@@ -157,7 +157,7 @@ class boids
             this.position.add(this.velocity);
             this.acceleration.mult(0);
         }
-        
+
         show()
         {
             stroke(this.R,this.G,this.B);
@@ -174,15 +174,15 @@ class boids
                     line(this.position.x,this.position.y,v.x,v.y);
                 }
         }
-        
-        
+
+
         stayOnScreen()
         {
             if(this.position.x>width)
                 this.position.x=0;
             else if(this.position.x<0)
                 this.position.x=width;
-            
+
             if(this.position.y>height)
                 this.position.y=0;
             else if(this.position.y<0)

@@ -15,31 +15,31 @@ let walls=[];
 let obstacles=[];
 function setup() {
   // put setup code here
-    
-    createCanvas(600,600);
-    for(let i=0;i<100;i++)
+
+    createCanvas(windowWidth,windowHeight);
+    for(let i=0;i<140;i++)
         flock.push(new boids());
-    
-    
+
+
     s1=createSlider(0,2,1,0.1);
     s1.position(10,10);
     s2=createSlider(0,2,1,0.1);
     s2.position(160,10);
     s3=createSlider(0,2,1,0.1);
     s3.position(320,10);
-    
+
     button=createButton("DRAW");
     button.position(480,10);
     button.mousePressed(changeChoice);
-    
+
     button=createButton("WALLS");
     button.position(480,40);
     button.mousePressed(changeWalls);
-    
+
     button=createButton("SHAPE");
     button.position(480,70);
     button.mousePressed(changeShape);
-    
+
         for(let i=0;i<width;i+=50)
         {
             walls.push(createVector(i,0));
@@ -104,7 +104,7 @@ function mousePressed()
 function draw() {
   // put drawing code here
     background(0,0,0);
-    
+
     textSize(15);
     fill(255,0,0);
     strokeWeight(4);
@@ -115,7 +115,7 @@ function draw() {
     text(drawornot,545,25);
     text(wallsornot,545,55);
     text(pointornot,545,85);
-        
+
     for(let b of flock)
         {
             b.align(flock);
@@ -137,8 +137,8 @@ function draw() {
                 obstacles.push(createVector(mouseX,mouseY));
             }
         }
-    
-    
+
+
     noFill();
     beginShape();
     for(let pt of obstacles)
@@ -146,5 +146,5 @@ function draw() {
             vertex(pt.x,pt.y);
         }
     endShape();
-    
+
 }
